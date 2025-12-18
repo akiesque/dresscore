@@ -1,0 +1,14 @@
+{
+  "score": 89.5,
+  "item_count": 5,
+  "categories": [
+    "tops",
+    "bottoms",
+    "shoes",
+    "outerwear",
+    "accessories"
+  ],
+  "heuristic_reason": "colors match nicely",
+  "text_reason": "this outfit is perfect for going out",
+  "note": "colors match nicely and this outfit is perfect for going out"
+}

@@ -34,3 +34,22 @@ class CLIPEmbedder:
         )
 
         return image_features.cpu()
+    
+    @torch.no_grad()
+    def encode_text(self, texts):
+        """Encode text prompts into embeddings."""
+        inputs = self.processor(
+            text=texts,
+            return_tensors="pt",
+            padding=True,
+            truncation=True
+        ).to(self.device)
+        
+        text_features = self.model.get_text_features(**inputs)
+        
+        # Normalize for cosine similarity
+        text_features = text_features / text_features.norm(
+            dim=-1, keepdim=True
+        )
+        
+        return text_features.cpu()

@@ -1,0 +1,13 @@
+{
+  "score": 88.17,
+  "item_count": 4,
+  "categories": [
+    "tops",
+    "bottoms",
+    "shoes",
+    "outerwear"
+  ],
+  "heuristic_reason": "colors match nicely",
+  "text_reason": null,
+  "note": "colors match nicely"
+}
