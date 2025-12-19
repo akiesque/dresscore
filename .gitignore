@@ -3,4 +3,4 @@ __pycache__/
 data/
 clip_polyvore_model/
 embeddings/
-checkpoints/
+models/checkpoints/efficientnet_b0_polyvore_categories.pth
