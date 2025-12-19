@@ -89,6 +89,3 @@ class CLIPEmbedder:
         embedder.model.eval()
 
         return embedder
-
-clip = CLIPEmbedder()
-clip.save("models/clip_polyvore_model")
