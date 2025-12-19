@@ -1,0 +1,2 @@
+Early stopping triggered at epoch 8. Best Val Loss: 0.0324
+Test Accuracy: 0.9908
