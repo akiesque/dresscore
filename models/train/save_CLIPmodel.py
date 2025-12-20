@@ -4,7 +4,7 @@ import torch
 import json
 
 DATA_PATH = "data/polyvore-outfit-dataset/polyvore_outfits/images"
-TEXT_PATH = "data/polyvore-outfit-dataset/polyvore_outfits/polyvore_outfit_titles.json"
+TEXT_PATH = "data/polyvore-outfit-dataset/polyvore_outfits/polyvore_item_metadata.json"
 
 with open(TEXT_PATH, "r") as f:
     text_data = json.load(f)
@@ -19,7 +19,7 @@ for item_id, meta in text_data.items():
         continue  # skip missing images
 
     # choose what text you want CLIP to see
-    text = f'{meta["title"]}. {meta["url_name"]}'
+    text = f'{meta["url_name"]}'
 
     image_paths.append(img_path)
     texts.append(text)
