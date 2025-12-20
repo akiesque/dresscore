@@ -53,7 +53,8 @@ class CLIPEmbedder:
             text=texts,
             return_tensors="pt",
             padding=True,
-            truncation=True
+            truncation=True,
+            max_length=32,
         ).to(self.device)
 
         text_features = self.model.get_text_features(**inputs)

@@ -32,7 +32,24 @@ image_embeddings = clip.encode_images_batched(
     batch_size=32
 )
 
-text_embeddings = clip.encode_text(texts)
+def encode_text_batched(embedder, texts, batch_size=64):
+    all_feats = []
+
+    for i in range(0, len(texts), batch_size):
+        batch_texts = texts[i:i + batch_size]
+        feats = embedder.encode_text(batch_texts)
+        all_feats.append(feats)
+
+        if i % (batch_size * 20) == 0:
+            print(f"Encoded {i}/{len(texts)} texts")
+
+    return torch.cat(all_feats, dim=0)
+
+text_embeddings = encode_text_batched(
+    clip,
+    texts,
+    batch_size=64   
+)
 
 sims = image_embeddings @ text_embeddings.T
 print(sims.diag().mean().item())
